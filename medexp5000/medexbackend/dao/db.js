@@ -5,7 +5,7 @@ const initDB = () => {
     return new Promise((accept, reject) => {
         let database = new sqlite3.Database(
             //'../data/medexp.sqlite3',
-            `../data/${process.env.DB_FILENAME}.sqlite3`,
+            `./data/${process.env.DB_FILENAME}.sqlite3`,
             (err) => {
                 if (err) {
                     console.error(err);
@@ -15,20 +15,20 @@ const initDB = () => {
             }
         );
     });
-};
-
-//programacion en promesa
-const singletonGetDB = async() => {
-    if (!db) {
-        db = await initDB();
-    }
-    return db;
 }
 
-//programacion Funcionals
+const singletonGetDB = async() => {
+        if (!db) {
+            db = await initDB();
+        }
+        return db;
+    }
+    // Academic
 const singletonGetDBnoPromise = () => {
     if (!db) {
-        initDB().then((database) => { db = database; }).catch((err) => { throw Error('Error de Database') });
+        initDB()
+            .then((database) => { db = database; })
+            .catch((err) => { throw Error('Error de Database') });
     }
     return db;
 }
