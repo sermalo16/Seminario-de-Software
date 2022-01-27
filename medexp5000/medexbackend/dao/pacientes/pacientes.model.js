@@ -57,6 +57,38 @@ class Pacientes {
         });
     }
 
+    updateONE(id, nombres, apellidos, identidad, telefono, correo) {
+        return new Promise((accept, reject) => {
+            const sqlUpdate = 'UPDATE pacientes set nombre = ?, apellidos = ?, identidad = ?, telefono = ?, email = ? where id = ?;';
+            db.run(
+                sqlUpdate, [nombres, apellidos, identidad, telefono, correo, id],
+                function(err) {
+                    if (err) {
+                        reject(err);
+                    } else {
+                        accept(this);
+                    }
+                }
+            );
+        });
+    }
+
+    deleteONE(id) {
+        return new Promise((accept, reject) => {
+            const sqlUpdate = 'DELETE FROM pacientes where id = ?;';
+            db.run(
+                sqlUpdate, [id],
+                function(err) {
+                    if (err) {
+                        reject(err);
+                    } else {
+                        accept(this);
+                    }
+                }
+            );
+        });
+    }
+
 
 }
 
