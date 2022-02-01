@@ -20,7 +20,9 @@ router.get('/all', async(req, res) => {
         console.log(ex);
         res.status(500).json({ status: 'failed' });
     }
-});
+}); //all
+
+
 // /byid/1;
 router.get('/byid/:id', async(req, res) => {
     try {
