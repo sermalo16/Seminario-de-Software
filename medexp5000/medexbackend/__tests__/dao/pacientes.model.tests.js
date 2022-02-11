@@ -3,7 +3,10 @@ const Pacientes = require('../../dao/pacientes/pacientes.model');
 describe('Testing Pacientes Model', () => {
     let pacientesModel = undefined;
     beforeAll(() => {
-        return pacientesModel = new Pacientes();
+        pacientesModel = new Pacientes();
+        setTimeout((done) => {
+            done();
+        }, 3000);
     });
 
     it('pacinetesModel Esta Definido ', () => {
@@ -15,4 +18,8 @@ describe('Testing Pacientes Model', () => {
         const arrPacientes = await pacientesModel.getAll();
         return expect(arrPacientes.length).toBeGreaterThanOrEqual(0);
     });
+
+    it('', async() => {
+        const resultado = await pacientesModel.new();
+    })
 });
