@@ -13,7 +13,7 @@ class Usuarios {
                 if (process.env.MIGRATE === 'true') {
                     // Por Si se ocupa algo
                     this.collection.createIndex({ "email": 1 }, { unique: true }).then((rstl) => {
-                        console.log("Indice creadfo")
+                        console.log("Indice creado Satisfactoriamente")
                     }).catch((err) => {
                         console.log("Error al crear indice")
                     });
