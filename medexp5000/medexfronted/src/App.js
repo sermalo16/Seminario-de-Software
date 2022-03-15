@@ -1,13 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
-import {Title} from './Components/UX/Title';
+
+import Splash from './Components/Views/Splash';
+import Signin from './Components/Views/SigninPage';
 
 function App() {
   return (
-  <div>
-    <Title>Hola Mundo Cruel</Title>
-    <Title>Hola</Title>
-  </div>  );
+    <Signin></Signin>
+  );
 }
 
 export default App;
